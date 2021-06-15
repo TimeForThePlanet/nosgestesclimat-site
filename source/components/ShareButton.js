@@ -16,8 +16,7 @@ export default (props) =>
 					.catch((error) => console.log('Error sharing', error))
 			}
 		>
-			<Icon />
-			{props.label && <span>{props.label}</span>}
+			<Icon {...props} />
 			{/* Created by Barracuda from the Noun Project */}
 		</button>
 	) : (
@@ -49,8 +48,7 @@ export const DesktopShareButton = (props) => {
 					color: ${props.color || 'black'};
 				`}
 			>
-				<Icon />
-				{props.label && <span>{props.label}</span>}
+				<Icon {...props} />
 			</div>
 			<form css="text-align: center">
 				<input
@@ -99,18 +97,20 @@ export const DesktopShareButton = (props) => {
 	)
 }
 
-const Icon = ({}) => (
+const Icon = (props) => (
 	<div
 		css={`
 			background: var(--color);
-			width: 3rem;
+			color: white;
 			height: 3rem;
 			border-radius: 2rem;
 			padding: 0.5rem;
 			margin: 0.6rem;
 			svg {
 				width: 2rem;
-			}
+			};
+			display: flex;
+			align-items: center;
 		`}
 	>
 		<svg version="1.1" x="0px" y="0px" viewBox="0 0 100 100" width="4rem">
@@ -136,5 +136,6 @@ const Icon = ({}) => (
 				/>
 			</g>
 		</svg>
+		{props.label && <span>{props.label}</span>}
 	</div>
 )

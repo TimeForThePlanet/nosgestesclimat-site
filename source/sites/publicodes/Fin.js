@@ -9,6 +9,7 @@ import { motion } from 'framer-motion'
 
 import BallonGES from './images/ballonGES.svg'
 import StartingBlock from './images/starting block.svg'
+import LogoTime from './images/logo_time.svg'
 import SessionBar from 'Components/SessionBar'
 import Chart from './chart'
 import { Link } from 'react-router-dom'
@@ -176,7 +177,23 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 							</div>
 						</div>
 					</div>
-					<ActionButton />
+					
+					<div css="display: flex; flex-direction: column; margin: 1rem 0">
+						<ShareButton
+							text="Voilà mon empreinte climat. Mesure la tienne !"
+							url={window.location}
+							title={'Nos Gestes Climat'}
+							color={textColor}
+							label="Partager mes résultats"
+						/>
+					</div>
+					
+					<TFTPButton />
+					
+					<div class="videoWrapper">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/DZnWYPM8dzg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					
 					<div css="padding: 1rem">
 						<Chart
 							details={details}
@@ -187,16 +204,6 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 							valueColor={textColor}
 						/>
 					</div>
-				</div>
-
-				<div css="display: flex; flex-direction: column; margin: 1rem 0">
-					<ShareButton
-						text="Voilà mon empreinte climat. Mesure la tienne !"
-						url={window.location}
-						title={'Nos Gestes Climat'}
-						color={textColor}
-						label="Partager mes résultats"
-					/>
 				</div>
 			</motion.div>
 		</div>
@@ -234,4 +241,38 @@ const ActionButton = () => (
 			Passer à l'action
 		</div>
 	</Link>
+)
+
+const TFTPButton = () => (
+	<a
+		href="https://time-planet.com/"
+		className="ui__ button plain"
+		target="_blank"
+		css={`
+			margin: 0.6rem 0;
+			width: 100%;
+			img {
+				transform: scaleX(-1);
+				height: 2rem;
+				margin: 0 0.6rem;
+				display: inline-block;
+			}
+			a {
+				color: var(--textColor);
+				text-decoration: none;
+			}
+		`}
+	>
+		<div
+			css={`
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+			`}
+		>
+			<img src={LogoTime} />
+			Améliorer mon impact en 3 minutes avec Time for the Planet
+		</div>
+	</a>
 )
