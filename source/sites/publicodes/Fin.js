@@ -83,7 +83,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 			window.location
 
 	return (
-		<div css="padding: 0 .3rem 1rem; max-width: 600px; margin: 0 auto;">
+		<div css="padding: 0 .3rem 1rem; max-width: 700px; margin: 0 auto;">
 			<Meta
 				title="Nos Gestes Climat"
 				description={`Mon empreinte climat est de ${roundedValue} tonnes de CO2e. Mesure la tienne !`}
@@ -272,7 +272,7 @@ const TFTPButton = () => (
 			`}
 		>
 			<img src={LogoTime} />
-			Améliorer mon impact en 3 minutes avec Time for the Planet
+			Améliorer mon impact avec Time for the Planet
 		</div>
 	</a>
 )
