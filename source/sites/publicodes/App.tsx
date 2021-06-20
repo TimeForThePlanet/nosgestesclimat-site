@@ -16,6 +16,7 @@ import Diffuser from './Diffuser'
 import Actions from './Actions'
 import Contribution from './Contribution'
 import Fin from './Fin'
+import SharedEndingScreen from './SharedEndingScreen'
 import Landing from './Landing'
 import Logo, { InlineLogo } from './Logo'
 import Documentation from './pages/Documentation'
@@ -109,6 +110,7 @@ const Router = ({}) => {
 					{/* Lien de compatibilité, à retirer par exemple mi-juillet 2020*/}
 					<Route path="/fin/:score" component={Fin} />
 					<Route path="/fin" component={Fin} />
+					<Route path="/shared-ending-screen" component={SharedEndingScreen} />
 					<Route path="/personas" component={Personas} />
 					<Route path="/actions" component={Actions} />
 					<Route path="/contribuer/:input?" component={Contribution} />

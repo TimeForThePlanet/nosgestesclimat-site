@@ -80,7 +80,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 			'https://aejkrqosjq.cloudimg.io/v7/' +
 			window.location.origin +
 			'/.netlify/functions/ending-screenshot?pageToScreenshot=' +
-			window.location
+			window.location.toString().replace("fin", "shared-ending-screen")
 
 	return (
 		<div css="padding: 0 .3rem 1rem; max-width: 600px; margin: 0 auto;">
@@ -209,39 +209,6 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 		</div>
 	)
 })
-
-const ActionButton = () => (
-	<Link
-		to="/actions"
-		className="ui__ button plain"
-		css={`
-			margin: 0.6rem 0;
-			width: 100%;
-			img {
-				transform: scaleX(-1);
-				height: 2rem;
-				margin: 0 0.6rem;
-				display: inline-block;
-			}
-			a {
-				color: var(--textColor);
-				text-decoration: none;
-			}
-		`}
-	>
-		<div
-			css={`
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 100%;
-			`}
-		>
-			<img src={StartingBlock} />
-			Passer à l'action
-		</div>
-	</Link>
-)
 
 const TFTPButton = () => (
 	<a
