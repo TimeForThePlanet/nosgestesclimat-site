@@ -18,6 +18,7 @@ export default function Meta({ title, description, image, url }: PropType) {
 			<meta property="og:title" content={title} />
 			<meta property="og:description" content={description} />
 			<meta property="twitter:card" content="summary_large_image" />
+			{image && <meta property="twitter:image" content={image} />}
 			{image && <meta property="og:image" content={image} />}
 			{url && <meta property="og:url" content={url} />}
 		</Helmet>
