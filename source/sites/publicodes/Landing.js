@@ -47,6 +47,7 @@ export default () => {
 			</div>
 
 			<footer>
+				<p>Cette déclinaison s'appuie sur la version officielle de Nos Gestes Climat développé par :</p>
 				<div
 					css={`
 						display: flex;
