@@ -77,7 +77,6 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 		textColor = findContrastedTextColor(backgroundColor, true),
 		roundedValue = Math.round(value / 1000),
 		shareImage =
-			'https://aejkrqosjq.cloudimg.io/v7/' +
 			window.location.origin +
 			'/.netlify/functions/ending-screenshot?pageToScreenshot=' +
 			window.location.toString().replace("fin", "shared-ending-screen")
@@ -177,7 +176,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 							</div>
 						</div>
 					</div>
-					
+
 					<div css="display: flex; flex-direction: column; margin: 1rem 0">
 						<ShareButton
 							text="Voilà mon empreinte climat. Mesure la tienne !"
@@ -187,13 +186,13 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 							label="Partager mes résultats"
 						/>
 					</div>
-					
+
 					<TFTPButton />
-					
+
 					<div class="videoWrapper">
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/DZnWYPM8dzg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
-					
+
 					<div css="padding: 1rem">
 						<Chart
 							details={details}
@@ -204,11 +203,51 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 							valueColor={textColor}
 						/>
 					</div>
+					<ActionButton />
 				</div>
 			</motion.div>
+			<div style={{textAlign: 'center'}}>
+				<a href="https://time-planet.com/">
+					<img src={LogoTime} style={{maxWidth: '350px'}} alt="Logo de Time for the Planet" />
+					<h1 style={{marginTop: '-40px', marginBottom: '40px'}}>Time for the Planet</h1>
+				</a>
+			</div>
 		</div>
 	)
 })
+
+const ActionButton = () => (
+	<Link
+		to="/actions"
+		className="ui__ button plain"
+		css={`
+			margin: 0.6rem 0;
+			width: 100%;
+			img {
+				transform: scaleX(-1);
+				height: 2rem;
+				margin: 0 0.6rem;
+				display: inline-block;
+			}
+			a {
+				color: var(--textColor);
+				text-decoration: none;
+			}
+		`}
+	>
+		<div
+			css={`
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+			`}
+		>
+			<img src={StartingBlock} />
+			Passer à l'action
+		</div>
+	</Link>
+)
 
 const TFTPButton = () => (
 	<a
@@ -238,8 +277,8 @@ const TFTPButton = () => (
 				width: 100%;
 			`}
 		>
-			<img src={LogoTime} />
 			Améliorer mon impact avec Time for the Planet
+			<img src={LogoTime} alt="Logo de Time for the Planet" />
 		</div>
 	</a>
 )
