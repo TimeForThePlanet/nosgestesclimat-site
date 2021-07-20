@@ -55,7 +55,7 @@
 		"mock-local-storage": "^1.0.5",
 		"monaco-editor-webpack-plugin": "^2.0.0",
 		"postcss-loader": "^5.2.0",
-		"puppeteer": "^8.0.0",
+		"puppeteer": "^9.1.1",
 		"raw-loader": "^4.0.2",
 		"serve": "^11.1.0",
 		"style-loader": "^2.0.0",

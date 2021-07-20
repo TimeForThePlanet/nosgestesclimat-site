@@ -28,6 +28,7 @@ export const DesktopShareButton = (props) => {
 	const textAreaRef = useRef(null)
 
 	function copyToClipboard(e) {
+		console.log('copy')
 		textAreaRef.current.select()
 		document.execCommand('copy')
 		// This is just personal preference.
@@ -40,16 +41,7 @@ export const DesktopShareButton = (props) => {
 
 	return (
 		<div>
-			<div
-				css={`
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					color: ${props.color || 'black'};
-				`}
-			>
-				<Icon {...props} />
-			</div>
+			<h3>Partager mes résultats</h3>
 			<form css="text-align: center">
 				<input
 					css={`
@@ -108,7 +100,7 @@ const Icon = (props) => (
 			margin: 0.6rem;
 			svg {
 				width: 2rem;
-			};
+			}
 			display: flex;
 			align-items: center;
 		`}

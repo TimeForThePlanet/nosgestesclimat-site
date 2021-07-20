@@ -79,7 +79,7 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 		shareImage =
 			window.location.origin +
 			'/.netlify/functions/ending-screenshot?pageToScreenshot=' +
-			window.location.toString().replace("fin", "shared-ending-screen")
+			window.location.toString().replace('fin', 'shared-ending-screen')
 
 	return (
 		<div css="padding: 0 .3rem 1rem; max-width: 700px; margin: 0 auto;">
@@ -177,6 +177,17 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 						</div>
 					</div>
 
+					<div css="padding: 1rem">
+						<Chart
+							details={details}
+							color={textColor}
+							noAnimation
+							noText
+							noCompletion
+							valueColor={textColor}
+						/>
+					</div>
+
 					<div css="display: flex; flex-direction: column; margin: 1rem 0">
 						<ShareButton
 							text="Voilà mon empreinte climat. Mesure la tienne !"
@@ -190,26 +201,30 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 					<TFTPButton />
 
 					<div class="videoWrapper">
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/DZnWYPM8dzg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe
+							width="560"
+							height="315"
+							src="https://www.youtube.com/embed/DZnWYPM8dzg"
+							title="YouTube video player"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						></iframe>
 					</div>
 
-					<div css="padding: 1rem">
-						<Chart
-							details={details}
-							color={textColor}
-							noAnimation
-							noText
-							noCompletion
-							valueColor={textColor}
-						/>
-					</div>
 					<ActionButton />
 				</div>
 			</motion.div>
-			<div style={{textAlign: 'center'}}>
-				<a href="https://time-planet.com/">
-					<img src={LogoTime} style={{maxWidth: '350px'}} alt="Logo de Time for the Planet" />
-					<h1 style={{marginTop: '-40px', marginBottom: '40px'}}>Time for the Planet</h1>
+			<div style={{ textAlign: 'center' }}>
+				<a href="https://time-planet.com/" target="_blank">
+					<img
+						src={LogoTime}
+						style={{ maxWidth: '350px' }}
+						alt="Logo de Time for the Planet"
+					/>
+					<h1 style={{ marginTop: '-40px', marginBottom: '40px' }}>
+						Time for the Planet
+					</h1>
 				</a>
 			</div>
 		</div>
@@ -217,36 +232,14 @@ const AnimatedDiv = animated(({ score, value, details, headlessMode }) => {
 })
 
 const ActionButton = () => (
-	<Link
-		to="/actions"
-		className="ui__ button plain"
+	<div
 		css={`
-			margin: 0.6rem 0;
-			width: 100%;
-			img {
-				transform: scaleX(-1);
-				height: 2rem;
-				margin: 0 0.6rem;
-				display: inline-block;
-			}
-			a {
-				color: var(--textColor);
-				text-decoration: none;
-			}
+			margin: 2rem 0;
 		`}
 	>
-		<div
-			css={`
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 100%;
-			`}
-		>
-			<img src={StartingBlock} />
-			Passer à l'action
-		</div>
-	</Link>
+		Vous souhaitez aller plus loin ?<br />
+		<Link to="/actions">Passez à l'action</Link>
+	</div>
 )
 
 const TFTPButton = () => (
@@ -255,8 +248,7 @@ const TFTPButton = () => (
 		className="ui__ button plain"
 		target="_blank"
 		css={`
-			margin: 0.6rem 0;
-			width: 100%;
+			margin: 0.6rem 0 2rem;
 			img {
 				transform: scaleX(-1);
 				height: 2rem;
@@ -274,10 +266,17 @@ const TFTPButton = () => (
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				width: 100%;
+
+				@media (max-width: 800px) {
+					flex-direction: column-reverse;
+
+					img {
+						display: none;
+					}
+				}
 			`}
 		>
-			Améliorer mon impact avec Time for the Planet
+			Découvrir Time for the Planet
 			<img src={LogoTime} alt="Logo de Time for the Planet" />
 		</div>
 	</a>
