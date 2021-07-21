@@ -28,7 +28,6 @@ export const DesktopShareButton = (props) => {
 	const textAreaRef = useRef(null)
 
 	function copyToClipboard(e) {
-		console.log('copy')
 		textAreaRef.current.select()
 		document.execCommand('copy')
 		// This is just personal preference.
