@@ -36,7 +36,7 @@ exports.handler = async (event, context) => {
 
 	await timeout(1000)
 
-	const element = await page.$('#shareImage')
+	const element = await page.$('#fin')
 
 	const b64string = await element.screenshot({ encoding: 'base64' })
 
