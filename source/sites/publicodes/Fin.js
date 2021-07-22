@@ -276,7 +276,7 @@ const TFTPButton = () => (
 				}
 			`}
 		>
-			Découvrir Time for the Planet
+			Agir avec Time for the Planet
 			<img src={LogoTime} alt="Logo de Time for the Planet" />
 		</div>
 	</a>
