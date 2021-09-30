@@ -1,22 +1,20 @@
-import classnames from 'classnames'
-import { ThemeColorsContext } from 'Components/utils/colors'
-import React, { useCallback, useContext, useState } from 'react'
-import { Explicable } from 'Components/conversation/Explicable'
+import { updateSituation } from 'Actions/actions'
+import React from 'react'
 import emoji from 'react-easy-emoji'
 import { useDispatch, useSelector } from 'react-redux'
 import { situationSelector } from 'Selectors/simulationSelectors'
-import { updateSituation } from 'Actions/actions'
 import { Mosaic } from './UI'
 
 // This is the number of possible answers in this very custom input component
 const chipsTotal = 14
 
-export default function SelectWeeklyDiet({
+export default function NumberedMosaic({
 	name,
 	setFormValue,
 	selectedRules,
 	value: currentValue,
 	question,
+	options: { chipsTotal },
 }) {
 	const dispatch = useDispatch()
 	const situation = useSelector(situationSelector)
@@ -38,6 +36,7 @@ export default function SelectWeeklyDiet({
 				: defaultValue),
 		0
 	)
+	console.log(chipsCount)
 
 	const choiceElements = (
 		<div>
@@ -56,11 +55,18 @@ export default function SelectWeeklyDiet({
 								situationValue != null
 									? situationValue
 									: question.rawNode['par défaut']
+						console.log(title, icônes, description, value)
 						return (
 							<li className="ui__ card interactive" key={name}>
 								<h4>{title}</h4>
-								<div>{emoji(icônes)}</div>
-								<p>{description.split('\n')[0]}</p>
+								<div
+									css={`
+										${!description ? 'font-size: 200%' : ''}
+									`}
+								>
+									{icônes && emoji(icônes)}
+								</div>
+								<p>{description && description.split('\n')[0]}</p>
 								<div css={' span {margin: .8rem; font-size: 120%}'}>
 									<button
 										className={`ui__ button small plain ${
@@ -88,19 +94,23 @@ export default function SelectWeeklyDiet({
 					}
 				)}
 			</Mosaic>
-			<div css="p {text-align: center}">
-				{chipsCount > chipsTotal ? (
-					<p css="text-decoration: underline; text-decoration-color: red;   text-decoration-thickness: 0.2rem;">
-						Vous avez fait {chipsCount - chipsTotal} choix en trop !
-					</p>
-				) : chipsCount === chipsTotal ? (
-					<p>{emoji('😋👍')}</p>
-				) : (
-					<p css="text-decoration: underline; text-decoration-color: yellow; text-decoration-thickness: 0.2rem;">
-						Il vous reste {chipsTotal - chipsCount} choix à faire.
-					</p>
-				)}
-			</div>
+			{/* If "chipsTotal" is specified, show to the user the exact number of
+			choices that must be filled */}
+			{chipsTotal && (
+				<div css="p {text-align: center}">
+					{chipsCount > chipsTotal ? (
+						<p css="text-decoration: underline; text-decoration-color: red;   text-decoration-thickness: 0.2rem;">
+							Vous avez fait {chipsCount - chipsTotal} choix en trop !
+						</p>
+					) : chipsCount === chipsTotal ? (
+						<p>{emoji('😋👍')}</p>
+					) : (
+						<p css="text-decoration: underline; text-decoration-color: yellow; text-decoration-thickness: 0.2rem;">
+							Il vous reste {chipsTotal - chipsCount} choix à faire.
+						</p>
+					)}
+				</div>
+			)}
 		</div>
 	)
 
