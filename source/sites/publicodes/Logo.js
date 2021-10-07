@@ -124,5 +124,5 @@ const NosGestesClimatInline = () => (
 			</span>
 			<span css="font-size: 70%; align-self: center">climat</span>
 		</span>
-	</div>
+	</span>
 )

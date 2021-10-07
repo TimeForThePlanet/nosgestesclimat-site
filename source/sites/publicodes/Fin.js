@@ -321,7 +321,7 @@ const ActionButton = ({ text }) => (
 			<img src={StartingBlock} />
 			{text}
 		</div>
-	</a>
+	</Link>
 )
 
 const IntegratorActionButton = () => {
