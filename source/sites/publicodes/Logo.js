@@ -65,64 +65,18 @@ const NosGestesClimatInline = () => (
 		css={`
 			display: flex;
 			align-items: center;
-
-			@media (max-width: 800px) {
-				flex-direction: column;
-			}
+			font-weight: 400;
+			color: black;
+			position: relative;
 		`}
 	>
-		<span
-			css={`
-				display: flex;
-				align-items: center;
-				font-weight: 400;
-				color: black;
-				position: relative;
-				width: 200px;
-			`}
-		>
-			<img
-				src={LogoTime}
-				style={{ maxWidth: '30px' }}
-				alt="Logo de Time for the Planet"
-			/>
-			<span
-				css={`
-					font-size: 70%;
-					font-family: 'Gilroy', 'Helvetica', 'sans-serif';
-					color: black;
-					white-space: nowrap;
-				`}
-			>
-				Time for the Planet
+		<span css=" font-size: 70%; align-self: center">nos</span>
+		<span css="margin: 0 .25rem">
+			<span css="color: var(--color); font-weight: bold; text-transform: uppercase; font-size: 75%">
+				ges
 			</span>
+			tes
 		</span>
-		<span
-			css={`
-				margin: 0 1.5rem;
-				font-size: 50%;
-				color: black;
-			`}
-		>
-			x
-		</span>
-		<span
-			css={`
-				display: flex;
-				align-items: center;
-				font-weight: 400;
-				color: black;
-				position: relative;
-			`}
-		>
-			<span css=" font-size: 70%; align-self: center">nos</span>
-			<span css="margin: 0 .25rem">
-				<span css="color: var(--color); font-weight: bold; text-transform: uppercase; font-size: 75%">
-					ges
-				</span>
-				tes
-			</span>
-			<span css="font-size: 70%; align-self: center">climat</span>
-		</span>
+		<span css="font-size: 70%; align-self: center">climat</span>
 	</span>
 )
