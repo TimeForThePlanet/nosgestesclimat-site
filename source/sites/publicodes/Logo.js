@@ -1,6 +1,6 @@
 
 import React, { useContext } from 'react'
-import emoji from 'react-easy-emoji'
+import LogoTime from './images/logo_time.svg'
 import { IframeOptionsContext } from 'Components/utils/IframeOptionsProvider'
 //This component is unfortunately repeated in index.html, where we can't yet use a component :-(
 

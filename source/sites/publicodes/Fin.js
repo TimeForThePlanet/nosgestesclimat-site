@@ -16,6 +16,7 @@ import DefaultFootprint from './DefaultFootprint'
 import IframeDataShareModal from './IframeDataShareModal'
 import BallonGES from './images/ballonGES.svg'
 import StartingBlock from './images/starting block.svg'
+import LogoTime from './images/logo_time.svg'
 
 const gradient = tinygradient([
 		'#78e08f',
