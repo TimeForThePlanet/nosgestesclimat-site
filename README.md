@@ -1,5 +1,9 @@
 ## Nosgestesclimat-site
 
+## Achivage
+
+Ce fork est désormais archivé au profit de l'iframe qui sera bien mieux tenu à jour. Voir le repositoriy https://github.com/TimeForThePlanet/nosgestesclimat-iframe
+
 ## C'est quoi ?
 
 Un simulateur d'empreinte carbone personnelle à l'année, utilisant le modèle climat de [nosgestesclimat](https://github.com/datagir/nosgestesclimat).
